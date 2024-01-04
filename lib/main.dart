@@ -32,6 +32,29 @@ class MapExamplePage extends StatefulWidget {
 class _MapExamplePageState extends State<MapExamplePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: NaverMap());
+    return Scaffold(
+        body: Column(children: [
+      const Expanded(child: NaverMap()),
+      Container(
+          alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: ElevatedButton(
+              child: const Text("open new page"),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (ctx) => const IssueTestNewPage()));
+              })),
+    ]));
+  }
+}
+
+class IssueTestNewPage extends StatelessWidget {
+  const IssueTestNewPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(body: Placeholder());
   }
 }
