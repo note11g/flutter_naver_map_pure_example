@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_naver_map: ^1.1.0+1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
