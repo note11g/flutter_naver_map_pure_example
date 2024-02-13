@@ -35,6 +35,12 @@ class MapExamplePage extends StatefulWidget {
 class _MapExamplePageState extends State<MapExamplePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: NaverMap());
+    return const Scaffold(
+        body: NaverMap(
+      options: NaverMapViewOptions(
+          mapType: NMapType.terrain,
+          initialCameraPosition: NCameraPosition(
+              target: NLatLng(35.179554, 129.075638), zoom: 10)),
+    ));
   }
 }
