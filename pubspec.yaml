@@ -12,7 +12,11 @@ dependencies:
     sdk: flutter
 
   flutter_naver_map: ^1.2.1
-  flutter_native_splash: ^2.3.13
+  geolocator: ^11.0.0
+  sensors_plus: ^4.0.2
+  rxdart: ^0.27.7
+  lat_compass: ^1.1.0
+
 
 dev_dependencies:
   flutter_test:
