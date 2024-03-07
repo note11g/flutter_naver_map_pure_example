@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_naver_map/flutter_naver_map.dart';
 
 void main() async {
-  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  WidgetsFlutterBinding.ensureInitialized();
   await NaverMapSdk.instance.initialize(clientId: '2vkiu8dsqb');
-  FlutterNativeSplash.remove();
   runApp(const MyApp());
 }
 
@@ -33,8 +30,25 @@ class MapExamplePage extends StatefulWidget {
 }
 
 class _MapExamplePageState extends State<MapExamplePage> {
+  late NaverMapController controller;
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: NaverMap());
+    return Scaffold(
+      body: NaverMap(
+        onMapReady: (controller) => this.controller = controller,
+        // forceGLSurfaceView: true,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: addMarker,
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+
+  Future<void> addMarker() async {
+    await controller.addOverlay(
+        NMarker(id: "1", position: controller.nowCameraPosition.target));
+    // setState(() {});
   }
 }

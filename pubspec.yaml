@@ -11,8 +11,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_naver_map: ^1.2.1
-  flutter_native_splash: ^2.3.13
+  flutter_naver_map:
+    git:
+      url: https://github.com/note11g/flutter_naver_map.git
+      ref: dev-1.2.2
 
 dev_dependencies:
   flutter_test:
